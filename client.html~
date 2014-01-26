@@ -17,7 +17,7 @@
 			</div>
 		
 			<div id="right">
-				<input class="inField" type="text" value="Username" name="username" onfocus="inputFocus(this)">
+				<input class="inField" type="text" value="Username" name="username">
 				<input class="inField" type="text" value="Password" name="password">
 				<input type="button" value="Login">
 			</div>
