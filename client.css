@@ -40,7 +40,6 @@ margin-bottom:5px;
 }
 .inField:focus { 
     background: #FFFFFF; 
-    
     outline: none;    
 } 
 
@@ -49,9 +48,10 @@ margin-bottom:5px;
 	
 	margin-top:5px;
 	margin-left:20px;
+	margin-right:60px;
 	width:80px; 
 	clear:both;
-	float:left;
+	float:right;
 
 }
 
