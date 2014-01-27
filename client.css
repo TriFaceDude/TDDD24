@@ -10,27 +10,44 @@ text-align:center;
 p
 {
 font-family:"Times New Roman";
-font-size:20px;
+font-size:15px;
 text-align:center;
+margin-top:10px;
+margin-bottom:5px;
 }
+
+.input:-moz-placeholder { 
+    color:    #b5b5b5; 
+} 
 
 .inField
 {
+	background: #f5f5f5;
+	font-size: 0.8rem;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px; 
+	border-radius: 3px;
+	border: none; 
+	padding: 2px 10px; 
+	box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
+	clear: both;
+	
 	margin-left:20px;
-	margin-top:15px;
+	margin-top:5px;
  	border: 1px solid #006;
-	width:140px;
+	width:150px;
 	float:left;
 
 }
 
 .button
 {
-	margin-top:15px;
-	margin-left:20px;
-	margin-right:auto;
+	
+	margin-top:5px;
+	margin-right:80px;
+	width:80px; 
 	clear:both;
-	float:left;
+	float:right;
 
 }
 
@@ -45,7 +62,7 @@ text-align:center;
 	margin-right:auto;
 	margin-top:100px;
 	width:600px;
-	height:500px;
+	height:400px;
 }
 
 #register
@@ -53,7 +70,7 @@ text-align:center;
 	margin-top:10px;
 	float:right;
 	width:250px;
-	height:350px;
+	height:280px;
 	background-color:#E6E6E6;
 }
 
@@ -61,7 +78,7 @@ text-align:center;
 {
 	float:right;
 	width:250px;
-	height:140px;
+	height:110px;
 	background-color:#E6E6E6;
 }
 
@@ -69,7 +86,7 @@ text-align:center;
 {
 	float:left;
 	width:340px;
-	height:500px;
+	height:400px;
 	background-color:#F9FEFF;
 	text-align:center;
 }
