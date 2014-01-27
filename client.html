@@ -21,7 +21,7 @@
 
 				<input class="inField" type="text" value="Password" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">
 
-				<input class="button" type="button" value="Sign In" onclick="serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
+				<input class="button" type="button" value="Sign In" onclick="catchError(serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value))">
 			</div>
 
 			<div id="register">
@@ -41,7 +41,10 @@
 
 				<input class="inField" type="text" value="City" id="registerCity" onfocus="inputFocus(this)">
 
-				<input class="button" type="button" value="Register" onclick="serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
+				<input class="button" type="button" value="Register" onclick="catchError(serverstub.signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
+																								document.getElementById('registerFirstName').value, document.getElementById('registerLastName').value,
+																								document.getElementById('registerGender').value, document.getElementById('registerCountry').value,
+																								document.getElementById('registerCity').value)))">
 			</div>
 
 			</div>
