@@ -1,7 +1,7 @@
 window.onload = function(){
 
 	var currentView = document.getElementById('view');
-	currentView.innerHTML=document.getElementById('welcomeview').innerHTML
+	currentView.innerHTML=document.getElementById('welcomeview').innerHTML;
 };
 
 function inputFocus(i){
@@ -12,9 +12,33 @@ function inputBlur(i){
     if(i.value==""){ i.value=i.defaultValue; i.style.color="#888"; }
 }
 
-function catchError(status){
+function validateSignIn(input){
 
-	if(status.success == false){ alert(status.message); }
+	return !(isEmpty(input.username) || isEmpty(input.password));
+}
+
+function validateSignUp(input){
+
+	if(isEmpty(input.username)){return false;}
+	
+}
+
+function isEmpty(s){
+
+	return s == "";
+}
+
+function changeView(view){
+
+	var currentView = document.getElementById('view');
+	currentView.innerHTML=document.getElementById(view).innerHTML;
+}
+
+function checkViewChange(status, view){
+
+	if(status.success == false){ alert(status.message); return;}
+	
+	changeView(view)
 }
 
 function toUserObject(email, password, firstname, familyname, gender, city, country){

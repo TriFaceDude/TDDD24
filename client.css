@@ -16,9 +16,8 @@ margin-top:10px;
 margin-bottom:5px;
 }
 
-.input:-moz-placeholder { 
-    color:    #b5b5b5; 
-} 
+
+
 
 .inField
 {
@@ -29,25 +28,30 @@ margin-bottom:5px;
 	border-radius: 3px;
 	border: none; 
 	padding: 2px 10px; 
-	box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.1 );
+	box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.2 );
 	clear: both;
 	
 	margin-left:20px;
 	margin-top:5px;
- 	border: 1px solid #006;
+ 	
 	width:150px;
 	float:left;
 
 }
+.inField:focus { 
+    background: #FFFFFF; 
+    
+    outline: none;    
+} 
 
 .button
 {
 	
 	margin-top:5px;
-	margin-right:80px;
+	margin-left:20px;
 	width:80px; 
 	clear:both;
-	float:right;
+	float:left;
 
 }
 
