@@ -12,19 +12,43 @@
 		
 
 		<div id="container">
-			<div id="left">
-				<P class="boldText">This is the left margin</p>
-			</div>
-		
-			<div id="right">
-				<input class="inField" type="text" value="Username" name="username" onfocus="inputFocus(this)">
-				<input class="inField" type="text" value="Password" name="password">
-				<input type="button" value="Login">
-			</div>
-		
 			<div id="mid">
 	
 			</div>
+
+			<div id="signIn">
+				<input class="inField" type="text" value="Email" id="loginEmail" name="signInEmailBox" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="Password" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">
+
+				<input class="button" type="button" value="Sign In" onclick="serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
+			</div>
+
+			<div id="register">
+				<input class="inField" type="text" value="Email" id="registerEmail" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="Password" id="registerPassword" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="Password" id="registerPassword2" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="First Name" id="registerFirstName" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="Last Name" id="registerLastName" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="Gender" id="registerGender" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="Country" id="registerCountry" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="City" id="registerCity" onfocus="inputFocus(this)">
+
+				<input class="button" type="button" value="Register" onclick="serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
+			</div>
+
+			</div>
+		
+
+		
+
 		</div>
 		
 	</body>

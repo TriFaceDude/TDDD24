@@ -14,15 +14,24 @@ font-size:20px;
 text-align:center;
 }
 
-.label
-{
-	font-size:15px;
-}
-
 .inField
 {
+	margin-left:20px;
+	margin-top:15px;
  	border: 1px solid #006;
-	width:100px;
+	width:140px;
+	float:left;
+
+}
+
+.button
+{
+	margin-top:15px;
+	margin-left:20px;
+	margin-right:auto;
+	clear:both;
+	float:left;
+
 }
 
 .boldText
@@ -39,27 +48,27 @@ text-align:center;
 	height:500px;
 }
 
-#left
+#register
 {
-	float:left;
-	width:150px;
-	height:500px;
+	margin-top:10px;
+	float:right;
+	width:250px;
+	height:340px;
 	background-color:#E6E6E6;
 }
 
-#right
+#signIn
 {
 	float:right;
-	width:150px;
-	height:500px;
+	width:250px;
+	height:150px;
 	background-color:#E6E6E6;
 }
 
 #mid
 {
-	margin-left:auto;
-	margin-right:auto;
-	width:300px;
+	float:left;
+	width:340px;
 	height:500px;
 	background-color:#F9FEFF;
 	text-align:center;

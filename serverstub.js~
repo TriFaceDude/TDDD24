@@ -41,6 +41,7 @@ serverstub.signIn = function(email, password){
         serverstub.persistLoggedInUsers();
         return {"success": true, "message": "Successfully signed in.", "data": token};
     } else {
+	alert("Nope!");
         return {"success": false, "message": "Wrong username or password."};
     }
 };

@@ -12,19 +12,25 @@
 		
 
 		<div id="container">
-			<div id="left">
-				<P class="boldText">This is the left margin</p>
-			</div>
-		
-			<div id="right">
-				<input class="inField" type="text" value="Username" name="username">
-				<input class="inField" type="text" value="Password" name="password">
-				<input type="button" value="Login">
-			</div>
-		
 			<div id="mid">
 	
 			</div>
+
+			<div id="signIn">
+				<input class="inField" type="text" value="Email" id="loginEmail" name="emailBox" onfocus="inputFocus(this)">
+
+				<input class="inField" type="text" value="Password" id="loginPassword" name="passwordBox" onfocus="inputFocus(this)">
+
+				<input class="button" type="button" value="Login" onclick="serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
+			</div>
+
+			<div id="register">
+				<P class="boldText">This is the left margin</p>
+			</div>
+		
+
+		
+
 		</div>
 		
 	</body>
