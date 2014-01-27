@@ -1,3 +1,9 @@
+window.onload = function(){
+
+	var currentView = document.getElementById('view');
+	currentView.innerHTML=document.getElementById('welcomeview').innerHTML
+};
+
 function inputFocus(i){
     if(i.value==i.defaultValue){ i.value=""; i.style.color="#000"; }
 }
