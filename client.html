@@ -17,7 +17,7 @@
 
 					<input class="inField" type="text" value="Password" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">
 
-					<input class="button" type="button" value="Sign In" onclick="checkViewChange(serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value), 'signedinview')">
+					<input class="button" type="button" value="Sign In" onclick="updateView(serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value), 'signedinview')">
 				</div>
 
 				<div id="register">
@@ -37,7 +37,7 @@
 
 					<input class="inField" type="text" value="City" id="registerCity" onfocus="inputFocus(this)">
 
-					<input class="button" type="button" value="Register" onclick="checkViewChange(serverstub.signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
+					<input class="button" type="button" value="Register" onclick="updateView(serverstub.signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
 																								document.getElementById('registerFirstName').value, document.getElementById('registerLastName').value,
 																								document.getElementById('registerGender').value, document.getElementById('registerCountry').value,
 																								document.getElementById('registerCity').value)), 'signedinview')">

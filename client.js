@@ -1,32 +1,54 @@
+
 window.onload = function(){
 
-	var currentView = document.getElementById('view');
-	currentView.innerHTML=document.getElementById('welcomeview').innerHTML;
+	changeView('welcomeview');
 };
 
-function inputFocus(i){
-    if(i.value==i.defaultValue){ i.value=""; i.style.color="#000"; }
-}
+function updateView(status, view){
 
-function inputBlur(i){
-    if(i.value==""){ i.value=i.defaultValue; i.style.color="#888"; }
-}
-
-function validateSignIn(input){
-
-	return !(isEmpty(input.username) || isEmpty(input.password));
-}
-
-function validateSignUp(input){
-
-	if(isEmpty(input.username)){return false;}
+	if(status.success == false){ alert(status.message); return;}
 	
+	changeView(view)
 }
 
-function isEmpty(s){
+function signIn(email, password){
 
-	return s == "";
+	if(validSignIn(email, password)){
+	
+		serverstub.signIn(email, password);
+	}
 }
+
+function signUp(input){		// {email, password, firstname, familyname, gender, city, country}
+
+	if(validSignUp(input)){
+	
+		serverstub.signIn(input);
+	}
+}
+
+//Validation
+
+function validSignIn(email, password){
+
+	return !(isEmpty(email) || isEmpty(password));
+}
+
+function validSignUp(input){	// {email, password, firstname, familyname, gender, city, country}
+
+	if(isEmpty(input.email)){return false;}
+	if(isEmpty(input.password) || isEmpty(input.passwordRep) || input.password == input.passwordRep){return false;}
+	if(isEmpty(input.firstname)){return false;}
+	if(isEmpty(input.familyname)){return false;}
+	if(isEmpty(input.gender)){return false;}
+	if(isEmpty(input.country)){return false;}
+	if(isEmpty(input.city)){return false;}
+	
+	return true;
+}
+
+
+//Util
 
 function changeView(view){
 
@@ -34,11 +56,9 @@ function changeView(view){
 	currentView.innerHTML=document.getElementById(view).innerHTML;
 }
 
-function checkViewChange(status, view){
+function isEmpty(s){
 
-	if(status.success == false){ alert(status.message); return;}
-	
-	changeView(view)
+	return s == "";
 }
 
 function toUserObject(email, password, firstname, familyname, gender, city, country){
@@ -53,4 +73,12 @@ function toUserObject(email, password, firstname, familyname, gender, city, coun
 	user.country = country;
 	
 	return user;
+}
+
+function inputFocus(i){
+    if(i.value==i.defaultValue){ i.value=""; i.style.color="#000"; }
+}
+
+function inputBlur(i){
+    if(i.value==""){ i.value=i.defaultValue; i.style.color="#888"; }
 }
