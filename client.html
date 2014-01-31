@@ -17,7 +17,7 @@
 
 					<input class="inField" type="text" placeholder="Password" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">
 
-					<input class="button" type="button" value="Sign In" onclick="updateView(serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value), 'signedinview')">
+					<input class="button" type="button" value="Sign In" onclick="signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
 				</div>
 
 				<div id="register">
@@ -37,10 +37,10 @@
 
 					<input class="inField" type="text" placeholder="City" id="registerCity" onfocus="inputFocus(this)">
 
-					<input class="button" type="button" value="Register" onclick="updateView(serverstub.signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
-																								document.getElementById('registerFirstName').value, document.getElementById('registerLastName').value,
-																								document.getElementById('registerGender').value, document.getElementById('registerCountry').value,
-																								document.getElementById('registerCity').value)), 'signedinview')">
+					<input class="button" type="button" value="Register" onclick="signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
+																								document.getElementById('registerPassword2').value, document.getElementById('registerFirstName').value, 
+																								document.getElementById('registerLastName').value, document.getElementById('registerGender').value,
+																								document.getElementById('registerCountry').value, document.getElementById('registerCity').value))">
 				</div>
 			
 			

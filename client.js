@@ -15,7 +15,11 @@ function signIn(email, password){
 
 	if(validSignIn(email, password)){
 	
-		serverstub.signIn(email, password);
+		updateView(serverstub.signIn(email, password), 'signedinview');
+	}
+	else{
+	
+		alert('Error');
 	}
 }
 
@@ -23,7 +27,11 @@ function signUp(input){		// {email, password, firstname, familyname, gender, cit
 
 	if(validSignUp(input)){
 	
-		serverstub.signIn(input);
+		serverstub.signUp(input);
+	}
+	else{
+	
+		alert('Error');
 	}
 }
 
@@ -36,19 +44,34 @@ function validSignIn(email, password){
 
 function validSignUp(input){	// {email, password, firstname, familyname, gender, city, country}
 
-	if(isEmpty(input.email)){return false;}
-	if(isEmpty(input.password) || isEmpty(input.passwordRep) || input.password == input.passwordRep){return false;}
-	if(isEmpty(input.firstname)){return false;}
-	if(isEmpty(input.familyname)){return false;}
-	if(isEmpty(input.gender)){return false;}
-	if(isEmpty(input.country)){return false;}
-	if(isEmpty(input.city)){return false;}
+	var signUpError = false;
+
+	if(isEmpty(input.email)){changeInputBoxBorder('registerEmail', true); signUpError = true;}
+	if(isEmpty(input.password)){changeInputBoxBorder('registerPassword', true); signUpError = true;}
+	if(isEmpty(input.passwordRep) || input.password == input.passwordRep){changeInputBoxBorder('registerPassword2', true); signUpError = true;}
+	if(isEmpty(input.firstname)){changeInputBoxBorder('registerFirstName', true); signUpError = true;}
+	if(isEmpty(input.familyname)){changeInputBoxBorder('registerLastName', true); signUpError = true;}
+	if(isEmpty(input.gender)){changeInputBoxBorder('registerGender', true); signUpError = true;}
+	if(isEmpty(input.country)){changeInputBoxBorder('registerCountry', true); signUpError = true;}
+	if(isEmpty(input.city)){changeInputBoxBorder('registerCity', true); signUpError = true;}
 	
-	return true;
+	return !signUpError;
 }
 
 
 //Util
+
+function changeInputBoxBorder(boxID, setRed){
+
+	if(setRed){
+	
+		document.getElementById(boxID).style.border="thin solid red";
+	}
+	else{
+	
+		document.getElementById(boxID).style.border="";
+	}
+}
 
 function changeView(view){
 
@@ -61,11 +84,12 @@ function isEmpty(s){
 	return s == "";
 }
 
-function toUserObject(email, password, firstname, familyname, gender, city, country){
+function toUserObject(email, password, passwordRepeat, firstname, familyname, gender, city, country){
 	
 	var user = new Object();
 	user.email = email;
 	user.password = password;
+	user.passwordRep = passwordRepeat;
 	user.firstname = firstname;
 	user.familyname = familyname;
 	user.gender = gender;
