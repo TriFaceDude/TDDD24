@@ -97,18 +97,49 @@ margin-bottom:5px;
 
 #profile
 {
+	float:absolut;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:100px;
+	margin-top:0px;
 	width:600px;
 	height:400px;
-	background-color:#F9FEFF;
+	background-color:#FFF;
 	text-align:center;
 }
 
+#home
+{
+	float:absolut;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	width:600px;
+	height:400px;
+	background-color:#FFF;
+	text-align:center;
+}
+
+#browse
+{
+	float:absolut;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	width:600px;
+	height:400px;
+	background-color:#FFF;
+	text-align:center;
+}
+
+
 #navbar 
 {
-
+	float:absolut;
+	width:600px;
+	margin-top:20x;
+	margin-right:auto;
+	margin-left:auto;
+	float:absolut;
 }
 
 #navbar #holder ul 
@@ -124,27 +155,34 @@ margin-bottom:5px;
 	float:left;
 	margin-right:5px;
 	border:1px solid #000;
-	border-bottom:none;
-	padding:10px;
+	margin-bottom:noen;
+	padding:5px;
 	text-align:center;
 	display:block;
-	background:#E6E6E6
-	
+	background:#E6E6E6;
 }
 
 #navbar #holder ul li a:hover 
 {
-background:#d0e4fe;
-color:#FFFFFF;
-text-shadow:1px 1px 1px #000000
+	background:#FFFF;
+	color:#FFFFFF;
+	text-shadow:1px 1px 1px #000;
 }
 
 #navbar #holder
 {
-	height:65px;
-	border-bottom:1px solid #000000
+	height:31px;
+	border-bottom:1px solid #000;
+	width:600px;
 }
 
+#holder ul li a#onlink
+{
+	background:#FFF;
+	color:#000;
+	border-bottom:1px solid #FFF;
+	
+}
 
 
 
