@@ -4,18 +4,25 @@ window.onload = function(){
 	changeView('welcomeview');
 };
 
-function updateView(status, view){
+function catchSignInMessage(status){
 
-	if(status.success == false){ alert(status.message); return;}
+	if(status.success){ 
 	
-	changeView(view)
+		localStorage.token = status.data;
+	}
+	else{
+	
+		alert(status.message);
+	}
+	
+	alert(localStorage.token);
 }
 
 function signIn(email, password){
 
 	if(validSignIn(email, password)){
 	
-		updateView(serverstub.signIn(email, password), 'signedinview');
+		catchSignInMessage(serverstub.signIn(email, password), 'signedinview');
 	}
 	else{
 	
@@ -27,11 +34,7 @@ function signUp(input){		// {email, password, firstname, familyname, gender, cit
 
 	if(validSignUp(input)){
 	
-		serverstub.signUp(input);
-	}
-	else{
-	
-		alert('Error');
+		catchServerMessage(serverstub.signUp(input));
 	}
 }
 
@@ -44,32 +47,70 @@ function validSignIn(email, password){
 
 function validSignUp(input){	// {email, password, firstname, familyname, gender, city, country}
 
-	var signUpError = false;
-
-	if(isEmpty(input.email)){changeInputBoxBorder('registerEmail', true); signUpError = true;}
-	if(isEmpty(input.password)){changeInputBoxBorder('registerPassword', true); signUpError = true;}
-	if(isEmpty(input.passwordRep) || input.password == input.passwordRep){changeInputBoxBorder('registerPassword2', true); signUpError = true;}
-	if(isEmpty(input.firstname)){changeInputBoxBorder('registerFirstName', true); signUpError = true;}
-	if(isEmpty(input.familyname)){changeInputBoxBorder('registerLastName', true); signUpError = true;}
-	if(isEmpty(input.gender)){changeInputBoxBorder('registerGender', true); signUpError = true;}
-	if(isEmpty(input.country)){changeInputBoxBorder('registerCountry', true); signUpError = true;}
-	if(isEmpty(input.city)){changeInputBoxBorder('registerCity', true); signUpError = true;}
+	var errorCount = 0;
+ 
+	errorCount += validateField(['registerEmail'], [], isEmpty(input.email));
+	errorCount += validateField(['registerPassword', 'registerPassword2'], ['registerPassword', 'registerPassword2'], isEmpty(input.password));
+	errorCount += validateField(['registerPassword', 'registerPassword2'], ['registerPassword', 'registerPassword2'], isEmpty(input.passwordRep) || input.password != input.passwordRep);
+	errorCount += validateField(['registerFirstName'], [], isEmpty(input.firstname));
+	errorCount += validateField(['registerLastName'], [], isEmpty(input.familyname));
+	errorCount += validateField(['registerGender'], [], isEmpty(input.gender));
+	errorCount += validateField(['registerCountry'], [], isEmpty(input.country));
+	errorCount += validateField(['registerCity'], [], isEmpty(input.city));
 	
-	return !signUpError;
+	return errorCount == 0;
 }
 
 
-//Util
+function validateField(borderFieldIdArray, clearFieldIdArray, errorCondition){
 
-function changeInputBoxBorder(boxID, setRed){
-
-	if(setRed){
+	if(errorCondition){
 	
-		document.getElementById(boxID).style.border="thin solid red";
+		setFieldBorders(borderFieldIdArray, "thin solid red");
+		clearFields(clearFieldIdArray);
 	}
 	else{
 	
-		document.getElementById(boxID).style.border="";
+		setFieldBorders(borderFieldIdArray, "");
+	}
+	
+	return errorCondition;
+}
+
+function catchServerMessage(msg){
+
+	if(msg.success){
+	
+		clearFields(['registerEmail', 'registerPassword', 'registerPassword2', 'registerFirstName', 'registerLastName', 'registerGender', 'registerCountry', 'registerCity']);
+		alert(msg.message);
+	}
+	else
+	{
+	
+		if(msg.message == "User already exists."){
+
+			document.getElementById('registerEmail').style.border="thin solid red";
+			alert(msg.message); 
+		}
+	}
+	
+}
+
+//Util
+
+function setFieldBorders(fieldIdArray, borderStyle){
+
+	for (i = 0; i < fieldIdArray.length; ++i) {
+		
+		document.getElementById(fieldIdArray[i]).style.border = borderStyle;
+	}
+}
+
+function clearFields(fieldIdArray){
+
+	for (i = 0; i < fieldIdArray.length; ++i) {
+		
+		document.getElementById(fieldIdArray[i]).value = "";
 	}
 }
 
