@@ -1,9 +1,21 @@
 
 window.onload = function(){
-
 	localStorage.token = "";
 	updateView();
 };
+
+function tabClick(selectTab, showPage, hidePages){
+
+
+	document.getElementById(showPage).style.display = "block";
+	document.getElementById('selectedTab').setAttribute("id", "");
+	document.getElementsByName(selectTab)[0].setAttribute("id", "selectedTab");
+	
+	for (i = 0; i < hidePages.length; ++i) {
+		
+		document.getElementById(hidePages[i]).style.display = "none";
+	}
+}
 
 function updateView(){
 
@@ -14,7 +26,7 @@ function updateView(){
 	}
 	else{
 	
-		alert('signedIn!');
+		//alert('signedIn!');
 		changeView('signedinview');
 	}
 }
@@ -161,3 +173,5 @@ function inputBlur(i){
 function inputFocus(i){
     if(i.value==i.defaultValue){ i.value=""; i.style.color="#000"; }
 }
+
+
