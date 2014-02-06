@@ -162,7 +162,7 @@ float: left
 	float:left;
 	margin-right:5px;
 	border:1px solid #000;
-	margin-bottom:noen;
+	margin-bottom:none;
 	padding:5px;
 	text-align:center;
 	display:block;
@@ -183,7 +183,7 @@ float: left
 	width:600px;
 }
 
-#holder ul li a#onlink
+#holder ul li a#selected
 {
 	background:#FFF;
 	color:#000;
