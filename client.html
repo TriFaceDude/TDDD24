@@ -15,8 +15,6 @@
 				</div>
 
 				<div id="signIn">
-				
-					
 					
 					<input class="inField" type="text" id="loginEmail" name="signInEmailBox" onfocus="inputFocus(this)">
 					
@@ -26,7 +24,7 @@
 					
 					<label>Password</label>
 
-					<input class="button" type="button" value="Sign In" onclick="signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
+					<input class="button" type="button" id="signInButton" value="Sign In" onclick="signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
 				</div>
 
 				<div id="register">
@@ -62,7 +60,7 @@
 					
 					<label>City</label>
 
-					<input class="button" type="button" value="Register" onclick="signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
+					<input class="button" type="button" id="registerButton" value="Register" onclick="signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
 																								document.getElementById('registerPassword2').value, document.getElementById('registerFirstName').value, 
 																								document.getElementById('registerLastName').value, document.getElementById('registerGender').value,
 																								document.getElementById('registerCountry').value, document.getElementById('registerCity').value))">
@@ -85,9 +83,8 @@
 			
 				<div id="home">
 					<br></br>
-					<h1>Profile view</h1>
+					<h1>Profile view</h1>	
 				</div>
-				
 				
 			
 				<div id="browse">
@@ -96,8 +93,28 @@
 				</div>
 				
 				<div id="account">
-					<br></br>
-					<h1>Account view</h1>
+				
+					<h1>Change your password here</h1>
+					
+					<input class="accountInField" type="text" id="registerPassword" onfocus="inputFocus(this)">
+					
+					<label>Old password</label>
+
+					<input class="accountInField" type="text" id="newPassword" onfocus="inputFocus(this)">
+					
+					<label>New password</label>
+					
+					<input class="accountInField" type="text" id="newPassword2" onfocus="inputFocus(this)">
+					
+					<label>Repeat new password</label>
+					
+					<input class="button" type="button" id="changeButton" value="Change password" onclick="changePassword(oldPassword, newPassword, newPasswordRepeat)">
+					
+					<input class="button" type="button" id="signOutButton" value="Sign out" onclick="signOut()">
+					
+					
+					
+					
 				</div>
 			</div>
 		
@@ -106,13 +123,9 @@
 	</head>
 	
 	<body>
-		<h1>TWIDDER MOTHERFUCKER!</h1>
-
 		
 		<div id="view">
 		</div>
-		
-
 		
 	</body>
 </html>
