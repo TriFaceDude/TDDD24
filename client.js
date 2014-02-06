@@ -1,28 +1,41 @@
 
 window.onload = function(){
 
-	changeView('welcomeview');
+	updateView();
 };
+
+function updateView(){
+
+	if(localStorage.token == null){
+	
+		alert('NOTsignedIn!');
+		changeView('welcomeview');
+	}
+	else{
+	
+		alert('signedIn!');
+		changeView('signedinview');
+	}
+}
 
 function catchSignInMessage(status){
 
 	if(status.success){ 
 	
 		localStorage.token = status.data;
+		updateView();
 	}
 	else{
 	
 		alert(status.message);
 	}
-	
-	alert(localStorage.token);
 }
 
 function signIn(email, password){
 
 	if(validSignIn(email, password)){
 	
-		catchSignInMessage(serverstub.signIn(email, password), 'signedinview');
+		catchSignInMessage(serverstub.signIn(email, password));
 	}
 	else{
 	
@@ -34,7 +47,7 @@ function signUp(input){		// {email, password, firstname, familyname, gender, cit
 
 	if(validSignUp(input)){
 	
-		catchServerMessage(serverstub.signUp(input));
+		catchServerSignUpMessage(serverstub.signUp(input));
 	}
 }
 
@@ -77,7 +90,7 @@ function validateField(borderFieldIdArray, clearFieldIdArray, errorCondition){
 	return errorCondition;
 }
 
-function catchServerMessage(msg){
+function catchServerSignUpMessage(msg){
 
 	if(msg.success){
 	
