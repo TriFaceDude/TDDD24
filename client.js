@@ -21,12 +21,10 @@ function updateView(){
 
 	if(localStorage.token == ""){
 	
-		alert('NOTsignedIn!');
 		changeView('welcomeview');
 	}
 	else{
 	
-		//alert('signedIn!');
 		changeView('signedinview');
 	}
 }
