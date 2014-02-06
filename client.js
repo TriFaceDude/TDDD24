@@ -64,11 +64,38 @@ function signUp(input){		// {email, password, firstname, familyname, gender, cit
 	}
 }
 
+function signOut(){
+
+	serverstub.signOut(localStorage.token);
+	localStorage.token = "";
+	updateView();
+}
+
+function changePassword(oldPassword, newPassword, newPasswordRepeat){
+
+
+	if(validChangePassword(input)){
+	
+		serverstub.changePassword(localStorage.token, oldPassword, newPassword);
+	}
+}
+
 //Validation
 
 function validSignIn(email, password){
 
 	return !(isEmpty(email) || isEmpty(password));
+}
+
+function validChangePassword(oldPassword, newPassword, newPasswordRepeat){
+
+	var errorCount = 0;
+ 
+	errorCount += validateField(['oldPassword'], [], isEmpty(oldPassword));
+	errorCount += validateField(['newPassword1', 'newPassword2'], ['newPassword1', 'newPassword2'], isEmpty(newPassword));
+	errorCount += validateField(['newPassword1', 'newPassword2'], ['newPassword1', 'newPassword2'], newPassword != newPasswordRepeat);
+	
+	return errorCount == 0;
 }
 
 function validSignUp(input){	// {email, password, firstname, familyname, gender, city, country}
@@ -77,7 +104,7 @@ function validSignUp(input){	// {email, password, firstname, familyname, gender,
  
 	errorCount += validateField(['registerEmail'], [], isEmpty(input.email));
 	errorCount += validateField(['registerPassword', 'registerPassword2'], ['registerPassword', 'registerPassword2'], isEmpty(input.password));
-	errorCount += validateField(['registerPassword', 'registerPassword2'], ['registerPassword', 'registerPassword2'], isEmpty(input.passwordRep) || input.password != input.passwordRep);
+	errorCount += validateField(['registerPassword', 'registerPassword2'], ['registerPassword', 'registerPassword2'], input.password != input.passwordRep);
 	errorCount += validateField(['registerFirstName'], [], isEmpty(input.firstname));
 	errorCount += validateField(['registerLastName'], [], isEmpty(input.familyname));
 	errorCount += validateField(['registerGender'], [], isEmpty(input.gender));
@@ -123,6 +150,11 @@ function catchServerSignUpMessage(msg){
 }
 
 //Util
+
+function setLabelText(labelId, text){
+
+	document.getElementById(labelId).value = text;
+}
 
 function setFieldBorders(fieldIdArray, borderStyle){
 
