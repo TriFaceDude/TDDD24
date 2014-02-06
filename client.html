@@ -10,32 +10,57 @@
 			<div id="container">
 				<div id="mid">
 				
+				<img src="wimage.png" >
+				
 				</div>
 
 				<div id="signIn">
-					<input class="inField" type="text" placeholder="Email" id="loginEmail" name="signInEmailBox" onfocus="inputFocus(this)">
-
-					<input class="inField" type="text" placeholder="Password" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">
+				
+					
+					
+					<input class="inField" type="text" id="loginEmail" name="signInEmailBox" onfocus="inputFocus(this)">
+					
+					<label>Email</label>
+					
+					<input class="inField" type="text" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">
+					
+					<label>Password</label>
 
 					<input class="button" type="button" value="Sign In" onclick="checkViewChange(serverstub.signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value), 'signedinview')">
 				</div>
 
 				<div id="register">
-					<input class="inField" type="text" placeholder="Email" id="registerEmail" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerEmail" onfocus="inputFocus(this)">
+					
+					<label>Email</label>
 
-					<input class="inField" type="text" placeholder="Password" id="registerPassword" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerPassword" onfocus="inputFocus(this)">
+					
+					<label>Password</label>
 
-					<input class="inField" type="text" placeholder="Repeat password" id="registerPassword2" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerPassword2" onfocus="inputFocus(this)">
+					
+					<label>Repeat password</label>
 
-					<input class="inField" type="text" placeholder="First Name" id="registerFirstName" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerFirstName" onfocus="inputFocus(this)">
+					
+					<label>First name</label>
 
-					<input class="inField" type="text" placeholder="Last Name" id="registerLastName" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerLastName" onfocus="inputFocus(this)">
+					
+					<label>Last name</label>
 
-					<input class="inField" type="text" placeholder="Gender" id="registerGender" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerGender" onfocus="inputFocus(this)">
+					
+					<label>Gender</label>
 
-					<input class="inField" type="text" placeholder="Country" id="registerCountry" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerCountry" onfocus="inputFocus(this)">
+					
+					<label>Country</label>
 
-					<input class="inField" type="text" placeholder="City" id="registerCity" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="registerCity" onfocus="inputFocus(this)">
+					
+					<label>City</label>
 
 					<input class="button" type="button" value="Register" onclick="checkViewChange(serverstub.signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
 																								document.getElementById('registerFirstName').value, document.getElementById('registerLastName').value,
@@ -56,7 +81,6 @@
 						<li><a href="#home" id="onlink">Home</a></li>
 						<li><a href="#browse">Browse</a></li>
 						<li><a href="#">Account</a></li>
-						
 				
 					</ul>
 				
