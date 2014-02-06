@@ -4,9 +4,17 @@ window.onload = function(){
 	updateView();
 };
 
-function tabClick(tab){
+function tabClick(selectTab, showPage, hidePages){
 
-	alert(tab.id);
+
+	document.getElementById(showPage).style.display = "block";
+	document.getElementById('selectedTab').setAttribute("id", "");
+	document.getElementsByName(selectTab)[0].setAttribute("id", "selectedTab");
+	
+	for (i = 0; i < hidePages.length; ++i) {
+		
+		document.getElementById(hidePages[i]).style.display = "none";
+	}
 }
 
 function updateView(){

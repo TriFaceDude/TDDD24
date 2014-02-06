@@ -77,9 +77,9 @@
 
 			<div id="container">
 				<div id="navbar">
-					<a href="javascript:tabClick(this)" id="homeTab" class="tab">Home</a>
-					<a href="javascript:tabClick(this)" id="browseTab" class="tab">Browse</a>
-					<a href="javascript:tabClick(this)" id="accountTab" class="tab">Account</a>
+					<a href="javascript:tabClick('homeTab' , 'home', ['browse', 'account'])" id="selectedTab" name="homeTab" class="tab">Home</a>
+					<a href="javascript:tabClick('browseTab', 'browse', ['home', 'account'])" id="" name="browseTab" class="tab">Browse</a>
+					<a href="javascript:tabClick('accountTab', 'account', ['browse', 'home'])" id="" name="accountTab" class="tab">Account</a>
 				</div>	<!-- end navbar div-->
 			
 			
@@ -87,13 +87,19 @@
 					<br></br>
 					<h1>Profile view</h1>
 				</div>
-			</div>
-
+				
+				
 			
-			<!--<div id="browse">
-				<br></br>
-				<h1>Browse view</h1>
-			</div>-->
+				<div id="browse">
+					<br></br>
+					<h1>Browse view</h1>
+				</div>
+				
+				<div id="account">
+					<br></br>
+					<h1>Account view</h1>
+				</div>
+			</div>
 		
 		</script>
 		
