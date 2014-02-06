@@ -16,6 +16,15 @@ margin-top:10px;
 margin-bottom:5px;
 }
 
+label
+{
+font-family:"Times New Roman";
+font-size:15px;
+margin-top:5px;
+margin-left:5px;
+float: left
+}
+
 
 
 
@@ -23,19 +32,18 @@ margin-bottom:5px;
 {
 	background: #f5f5f5;
 	font-size: 0.8rem;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px; 
+
 	border-radius: 3px;
 	border: none; 
 	padding: 2px 10px; 
 	box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.2 );
 	clear: both;
 	
-	margin-left:20px;
+	margin-right:5px;
 	margin-top:5px;
  	
-	width:150px;
-	float:left;
+	width:110px;
+	float:right;
 
 }
 .inField:focus { 
@@ -47,8 +55,7 @@ margin-bottom:5px;
 {
 	
 	margin-top:5px;
-	margin-left:20px;
-	margin-right:60px;
+	margin-right:5px;
 	width:80px; 
 	clear:both;
 	float:right;
