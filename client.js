@@ -1,9 +1,13 @@
 
 window.onload = function(){
 
-	localStorage.token = "";
 	updateView();
 };
+
+function tabClick(tab){
+
+	alert(tab.id);
+}
 
 function updateView(){
 
@@ -14,7 +18,7 @@ function updateView(){
 	}
 	else{
 	
-		alert('signedIn!');
+		//alert('signedIn!');
 		changeView('signedinview');
 	}
 }

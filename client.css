@@ -67,6 +67,31 @@ float: left
 	font-size:30px;
 }
 
+a.tab
+{
+	text-decoration:none;
+	float:left;
+	margin-right:5px;
+	border:1px solid #000;
+	padding:5px;
+	text-align:center;
+	display:block;
+	background:#E6E6E6;
+}
+
+a.tab:hover
+{
+	background:#0F0;
+	color:#000;
+}
+
+a.tab#onlink
+{
+	background:#FFF;
+	color:#000;
+	border-bottom:1px solid #FFF;
+}
+
 #container
 {
 	margin-left:auto;
@@ -102,33 +127,30 @@ float: left
 	text-align:center;
 }
 
-#profile
-{
-	float:absolut;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top:0px;
-	width:600px;
-	height:400px;
-	background-color:#FFF;
-	text-align:center;
-}
-
 #home
 {
-	float:absolut;
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:0px;
 	width:600px;
-	height:400px;
+	height:300px;
 	background-color:#FFF;
 	text-align:center;
+	float:left;
 }
 
 #browse
 {
-	float:absolut;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:0px;
+	width:600px;
+	height:400px;
+	background-color:#FFF;
+	text-align:center;
+}
+
+#account
+{
 	margin-left:auto;
 	margin-right:auto;
 	margin-top:0px;
@@ -141,22 +163,14 @@ float: left
 
 #navbar 
 {
-	float:absolut;
 	width:600px;
-	margin-top:20x;
 	margin-right:auto;
 	margin-left:auto;
-	float:absolut;
+	float:left;
+	background-color:transparent;
 }
 
-#navbar #holder ul 
-{
-	list-style:none;
-	margin:0;
-	padding:0;
-}
-
-#navbar #holder ul li a
+/*#navbar #holder ul li a
 {
 	text-decoration:none;
 	float:left;
@@ -169,12 +183,21 @@ float: left
 	background:#E6E6E6;
 }
 
+#navbar #holder ul 
+{
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+
 #navbar #holder ul li a:hover 
 {
 	background:#FFFF;
 	color:#FFFFFF;
 	text-shadow:1px 1px 1px #000;
 }
+
 
 #navbar #holder
 {
@@ -189,7 +212,6 @@ float: left
 	color:#000;
 	border-bottom:1px solid #FFF;
 	
-}
-
+}*/
 
 
