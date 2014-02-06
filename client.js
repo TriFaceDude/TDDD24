@@ -1,12 +1,13 @@
 
 window.onload = function(){
 
+	localStorage.token = "";
 	updateView();
 };
 
 function updateView(){
 
-	if(localStorage.token == null){
+	if(localStorage.token == ""){
 	
 		alert('NOTsignedIn!');
 		changeView('welcomeview');
