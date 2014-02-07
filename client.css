@@ -1,29 +1,31 @@
 body
 {
-background-color:#d0e4fe;
+	background-color:#d0e4fe;
 }
 h1
 {
-color:orange;
-text-align:center;
-clear:both;
+	color:orange;
+	text-align:center;
+	clear:both;
 }
 p
 {
-font-family:"Times New Roman";
-font-size:15px;
-text-align:center;
-margin-top:10px;
-margin-bottom:5px;
+	font-family:"Times New Roman";
+	font-size:15px;
+	text-align:center;
+	margin-top:10px;
+	margin-bottom:5px;
 }
+
+
 
 label
 {
-font-family:"Times New Roman";
-font-size:15px;
-margin-top:5px;
-margin-left:5px;
-float: left
+	font-family:"Times New Roman";
+	font-size:15px;
+	margin-top:5px;
+	margin-left:5px;
+	float: left;
 }
 
 
@@ -83,7 +85,7 @@ float: left
 
 #signOutButton
 {
-	margin-top:132px;
+	margin-top:110px;
 }
 
 #changeButton
@@ -93,6 +95,21 @@ float: left
 	float:left;
 	margin-left:230px;
 }
+
+
+.errorLabel
+{
+	margin-top:5px;
+	margin-right:5px;
+	float: right;
+	clear:both;
+}
+
+#changeErrorLabel
+{
+margin-right:250px;
+}
+
 
 .button
 {
