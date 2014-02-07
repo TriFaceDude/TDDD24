@@ -28,7 +28,18 @@ label
 	float: left;
 }
 
+.errorLabel
+{
+	margin-top:5px;
+	margin-right:5px;
+	float: right;
+	clear:both;
+}
 
+#changeErrorLabel
+{
+margin-right:250px;
+}
 
 
 .accountInField
@@ -73,6 +84,17 @@ label
     outline: none;    
 } 
 
+/*######
+Buttons
+######*/
+.button
+{
+	margin-right:5px;
+	width:80px; 
+	clear:both;
+	float:right;
+}
+
 #signInButton
 {
 	margin-top:5px;
@@ -95,29 +117,9 @@ label
 	float:left;
 	margin-left:230px;
 }
-
-
-.errorLabel
-{
-	margin-top:5px;
-	margin-right:5px;
-	float: right;
-	clear:both;
-}
-
-#changeErrorLabel
-{
-margin-right:250px;
-}
-
-
-.button
-{
-	margin-right:5px;
-	width:80px; 
-	clear:both;
-	float:right;
-}
+/*######
+End of buttons
+######*/
 
 
 .boldText
