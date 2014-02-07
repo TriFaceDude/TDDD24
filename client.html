@@ -25,6 +25,8 @@
 					<label>Password</label>
 
 					<input class="button" type="button" id="signInButton" value="Sign In" onclick="signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
+					
+					<label class="errorLabel" id="signInErrorLabel"></label>
 				</div>
 
 				<div id="register">
@@ -60,12 +62,15 @@
 					
 					<label>City</label>
 
+					
 					<input class="button" type="button" id="registerButton" value="Register" onclick="signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
 																								document.getElementById('registerPassword2').value, document.getElementById('registerFirstName').value, 
 																								document.getElementById('registerLastName').value, document.getElementById('registerGender').value,
 																								document.getElementById('registerCountry').value, document.getElementById('registerCity').value))">
+					
+					<label class="errorLabel" id="registerErrorLabel"></label>
+					
 				</div>
-			
 			
 			</div>
 		
@@ -109,6 +114,8 @@
 					<label>Repeat new password</label>
 					
 					<input class="button" type="button" id="changeButton" value="Change password" onclick="changePassword(oldPassword, newPassword, newPasswordRepeat)">
+					
+					<label class="errorLabel" id="changeErrorLabel"></label>
 					
 					<input class="button" type="button" id="signOutButton" value="Sign out" onclick="signOut()">
 					
