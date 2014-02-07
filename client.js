@@ -180,7 +180,7 @@ function validateField(borderFieldIdArray, clearFieldIdArray, errorCondition){
 
 function setLabelText(labelId, text){
 
-	document.getElementById(labelId).value = text;
+	document.getElementById(labelId).innerHTML = text;
 }
 
 function setFieldBorders(fieldIdArray, borderStyle){
