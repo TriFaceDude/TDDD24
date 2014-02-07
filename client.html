@@ -98,8 +98,11 @@
 					<p>Wall</p>
 					
 					<br></br>
-					<p name="wallPost"></p>
-					<br></br>
+						<div name="wallPost">
+							<p id="sender">SENDER</p>
+							
+							<p id="content">CONTENT</p>
+						</div>
 					<p name="wallPost"></p>
 					<br></br>
 					<p name="wallPost"></p>
@@ -107,7 +110,9 @@
 					
 					<input class="inField" type="text" id="postMessage" onfocus="inputFocus(this)">
 					
+					
 					<input class="button" type="button" id="postButton" value="Post" onclick="postMessage(document.getElementById('postMessage').value)">
+					<div class="clearBoth"></div> 
 					</div>
 					
 				</div>
