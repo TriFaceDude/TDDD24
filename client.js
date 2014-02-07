@@ -30,19 +30,6 @@ function updateView(){
 	}
 }
 
-function catchSignInMessage(status){
-
-	if(status.success){ 
-	
-		localStorage.token = status.data;
-		updateView();
-	}
-	else{
-	
-		alert(status.message);
-	}
-}
-
 function signIn(email, password){
 
 	if(validSignIn(email, password)){
@@ -51,7 +38,7 @@ function signIn(email, password){
 	}
 	else{
 	
-		alert('Error');
+		setLabelText('signInErrorLabel', 'Incomplete information.');
 	}
 }
 
@@ -60,6 +47,19 @@ function signUp(input){		// {email, password, firstname, familyname, gender, cit
 	if(validSignUp(input)){
 	
 		catchServerSignUpMessage(serverstub.signUp(input));
+	}
+	else{
+	
+		setLabelText('registerErrorLabel', 'Incomplete information.');
+	}
+}
+
+function changePassword(oldPassword, newPassword, newPasswordRepeat){
+
+
+	if(validChangePassword(input)){
+	
+		catchServerChangePasswordMessage(serverstub.changePassword(localStorage.token, oldPassword, newPassword));
 	}
 }
 
@@ -70,16 +70,61 @@ function signOut(){
 	updateView();
 }
 
-function changePassword(oldPassword, newPassword, newPasswordRepeat){
+//##########
+//Server message catching
+//##########
 
+function catchSignInMessage(msg){
 
-	if(validChangePassword(input)){
+	if(msg.success){ 
 	
-		serverstub.changePassword(localStorage.token, oldPassword, newPassword);
+		localStorage.token = msg.data;
+		updateView();
+	}
+	else{
+	
+		setLabelText('signInErrorLabel', msg.message);
 	}
 }
 
+function catchServerSignUpMessage(msg){
+
+	if(msg.success){
+	
+		clearFields(['registerEmail', 'registerPassword', 'registerPassword2', 'registerFirstName', 'registerLastName', 'registerGender', 'registerCountry', 'registerCity']);
+	}
+	else
+	{
+	
+		if(msg.message == "User already exists."){
+
+			document.getElementById('registerEmail').style.border="thin solid red";
+			setLabelText('registerErrorLabel', msg.message);
+		}
+	}
+	
+}
+
+function catchServerChangePasswordMessage(msg){
+
+	if(msg.success){
+	
+		setLabelText('changeErrorLabel', msg.message);
+	}
+	else{
+	
+		if(msg.message == "Wrong password."){
+		
+			setLabelText('changeErrorLabel', msg.message);
+			validateField(['changeButton'], ['changeButton'], false)
+		}
+	}
+}
+
+
+//##########
 //Validation
+//##########
 
 function validSignIn(email, password){
 
@@ -129,30 +174,13 @@ function validateField(borderFieldIdArray, clearFieldIdArray, errorCondition){
 	return errorCondition;
 }
 
-function catchServerSignUpMessage(msg){
-
-	if(msg.success){
-	
-		clearFields(['registerEmail', 'registerPassword', 'registerPassword2', 'registerFirstName', 'registerLastName', 'registerGender', 'registerCountry', 'registerCity']);
-		alert(msg.message);
-	}
-	else
-	{
-	
-		if(msg.message == "User already exists."){
-
-			document.getElementById('registerEmail').style.border="thin solid red";
-			alert(msg.message); 
-		}
-	}
-	
-}
-
+//##########
 //Util
+//##########
 
 function setLabelText(labelId, text){
 
-	document.getElementById(labelId).value = text;
+	document.getElementById(labelId).innerHTML = text;
 }
 
 function setFieldBorders(fieldIdArray, borderStyle){
