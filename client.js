@@ -20,13 +20,52 @@ function tabClick(selectTab, showPage, hidePages){
 
 function updateView(){
 
-	if(localStorage.token == ""){
+	if(myToken() == ""){
 	
 		changeView('welcomeview');
 	}
 	else{
 	
 		changeView('signedinview');
+	}
+}
+
+function postMessage(msg){
+
+	msg = serverstub.postMessage(myToken(), msg, 'g');
+	updateWall();
+}
+
+function formatPosts(){
+	
+	msgArray = getMessages();
+	posts = document.getElementsByClassName('wallPost');
+	postCount = Math.min(posts.length, msgArray.length);
+	
+	for (i = 0; i < postCount; ++i) {
+		
+		posts[i].getElementsByClassName('postSender')[0].innerHTML = msgArray[i].writer;
+		posts[i].getElementsByClassName('postContent')[0].innerHTML = msgArray[i].content;
+	}
+}
+
+function updateWall(){
+
+	clearWall();
+	formatPosts();
+}
+
+function getMessages(){
+
+	msg = serverstub.getUserMessagesByToken(myToken());
+	
+	if(msg.success){
+	
+		return msg.data;
+	}
+	else{
+	
+		alert('Failed retrive wall: ' + msg.message);
 	}
 }
 
@@ -59,13 +98,13 @@ function changePassword(oldPassword, newPassword, newPasswordRepeat){
 
 	if(validChangePassword(input)){
 	
-		catchServerChangePasswordMessage(serverstub.changePassword(localStorage.token, oldPassword, newPassword));
+		catchServerChangePasswordMessage(serverstub.changePassword(myToken(), oldPassword, newPassword));
 	}
 }
 
 function signOut(){
 
-	serverstub.signOut(localStorage.token);
+	serverstub.signOut(myToken());
 	localStorage.token = "";
 	updateView();
 }
@@ -80,6 +119,7 @@ function catchSignInMessage(msg){
 	
 		localStorage.token = msg.data;
 		updateView();
+		updateWall();
 	}
 	else{
 	
@@ -136,8 +176,8 @@ function validChangePassword(oldPassword, newPassword, newPasswordRepeat){
 	var errorCount = 0;
  
 	errorCount += validateField(['oldPassword'], [], isEmpty(oldPassword));
-	errorCount += validateField(['newPassword1', 'newPassword2'], ['newPassword1', 'newPassword2'], isEmpty(newPassword));
-	errorCount += validateField(['newPassword1', 'newPassword2'], ['newPassword1', 'newPassword2'], newPassword != newPasswordRepeat);
+	errorCount += validateField(['newPassword', 'newPasswordRepeat'], ['newPassword', 'newPasswordRepeat'], isEmpty(newPassword));
+	errorCount += validateField(['newPassword', 'newPasswordRepeat'], ['newPassword', 'newPasswordRepeat'], newPassword != newPasswordRepeat);
 	
 	return errorCount == 0;
 }
@@ -177,6 +217,31 @@ function validateField(borderFieldIdArray, clearFieldIdArray, errorCondition){
 //##########
 //Util
 //##########
+
+function toArray(obj){
+
+	return Array.prototype.slice.call(obj)
+}
+
+function elementArrayByName(name){
+
+	return toArray(document.getElementsByName(name));
+}
+
+function myToken(){
+
+	return localStorage.token;
+}
+
+function clearWall(){
+
+	posts = elementArrayByName('wallPost');
+	
+	for (i = 0; i < posts.length; ++i) {
+		
+		posts[i].innerHTML = ""; 
+	}
+}
 
 function setLabelText(labelId, text){
 
