@@ -32,7 +32,7 @@ function updateView(){
 
 function postMessage(msg){
 
-	msg = serverstub.postMessage(myToken(), msg, 'g');
+	msg = serverstub.postMessage(myToken(), msg, serverstub.tokenToEmail(myToken()));
 	updateWall();
 }
 
