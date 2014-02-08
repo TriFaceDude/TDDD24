@@ -1,6 +1,7 @@
 body
 {
-	background-color:#d0e4fe;
+	background-color:#3399CC;
+	
 }
 h1
 {
@@ -128,11 +129,7 @@ Buttons
 
 #postButton
 {
-	display:block;
-	margin-bottom:10x;
-	clear:right;
-	
-	
+	margin-top:30px;
 	
 }
 /*######
@@ -224,24 +221,27 @@ a.tab#selectedTab
 	
 	width:275px;
 
-	margin-left:10px;
-	margin-bottom:100x;
+	margin-left:5px;
+	margin-top:30px;
 	clear:left;
 	float:none;
 }
 
 .wallPost
 {
-	background:#E6E6E6;
+	background:#d0e4fe;
 	width:300px;
-	height:20px;
-	float:left;
-	position:absolut;
-
+	height:50px;
+	margin-left:auto;
+	margin-right:auto;
+	
 }
 
 .postSender
 {
+	margin-top:20px;
+	margin-right:225px;
+	
 }
 
 .postContent

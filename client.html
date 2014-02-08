@@ -95,20 +95,29 @@
 					</div>
 					
 					<div id="homeWall">
-					<p>Wall</p>
+					<h1>Wall</h1>
 					
-					<br></br>
-						<div name="wallPost">
-							<p id="sender">SENDER</p>
+					
+						<div class="wallPost">
+							<p class="postSender">SENDER</p>
 							
-							<p id="content">CONTENT</p>
+							<p class="postContent">CONTENT</p>
 						</div>
-					<p name="wallPost"></p>
-					<br></br>
-					<p name="wallPost"></p>
-					<br></br>
+						
+						<div class="wallPost">
+							<p class="postSender">SENDER</p>
+							
+							<p class="postContent">CONTENT</p>
+						</div>
+						
+						<div class="wallPost">
+							<p class="postSender">SENDER</p>
+							
+							<p class="postContent">CONTENT</p>
+						</div>
+			
 					
-					<input class="inField" type="text" id="postMessage" onfocus="inputFocus(this)">
+					<input class="inField" type="text" id="postMessage" placeholder="What's on your mind?" onfocus="inputFocus(this)">
 					
 					
 					<input class="button" type="button" id="postButton" value="Post" onclick="postMessage(document.getElementById('postMessage').value)">
