@@ -141,7 +141,7 @@
 				
 					<h1>Change your password here</h1>
 					
-					<input class="accountInField" type="text" id="changePassword" onfocus="inputFocus(this)">
+					<input class="accountInField" type="text" id="oldPassword" onfocus="inputFocus(this)">
 					
 					<label>Old password</label>
 
@@ -153,7 +153,7 @@
 					
 					<label>Repeat new password</label>
 					
-					<input class="button" type="button" id="changeButton" value="Change password" onclick="changePassword(oldPassword, newPassword, newPasswordRepeat)">
+					<input class="button" type="button" id="changeButton" value="Change password" onclick="changePassword(document.getElementById('oldPassword').value, document.getElementById('newPassword').value, document.getElementById('NewPasswordRepeat').value)">
 					
 					<label class="errorLabel" id="changeErrorLabel"></label>
 					

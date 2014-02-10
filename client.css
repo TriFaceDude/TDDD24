@@ -32,9 +32,9 @@ label
 .errorLabel
 {
 	margin-top:5px;
-	margin-right:5px;
-	float: right;
-	clear:both;
+	margin-left:5px;
+	float: left;
+	clear:left;
 }
 
 #changeErrorLabel
@@ -65,17 +65,20 @@ label
 	float:right;
 }
 
+.accountField:focus { 
+    background: #FFFFFF; 
+    outline: none;    
+} 
+
 .inField
 {
-	
 	background: #f5f5f5;
 	font-size: 0.8rem;
 
-	border-radius: 3px;
-	border: none; 
+	border-radius: 1px;
+	border: 1px solid #000; 
 	padding: 2px 10px; 
 	box-shadow: inset 0px 2px 3px rgba( 0,0,0,0.2 );
-	
 	
 	margin-right:5px;
 	margin-top:5px;
@@ -83,7 +86,6 @@ label
 	width:110px;
 	float:right;
 	clear: both;
-
 }
 
 .inField:focus { 
@@ -96,7 +98,6 @@ Buttons
 ######*/
 .button
 {
-	
 	margin-right:5px;
 	width:80px; 
 	
@@ -116,7 +117,7 @@ Buttons
 
 #signOutButton
 {
-	margin-top:110px;
+	margin-top:127px;
 }
 
 #changeButton
