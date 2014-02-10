@@ -179,7 +179,6 @@ function validChangePassword(oldPassword, newPassword, newPasswordRepeat){
 	errorCount += validateField(['newPassword', 'newPasswordRepeat'], ['newPassword', 'newPasswordRepeat'], isEmpty(newPassword));
 	errorCount += validateField(['newPassword', 'newPasswordRepeat'], ['newPassword', 'newPasswordRepeat'], newPassword != newPasswordRepeat);
 	
-	alert(errorCount);
 	return errorCount == 0;
 }
 
