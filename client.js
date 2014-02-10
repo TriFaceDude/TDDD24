@@ -96,7 +96,7 @@ function signUp(input){		// {email, password, firstname, familyname, gender, cit
 function changePassword(oldPassword, newPassword, newPasswordRepeat){
 
 
-	if(validChangePassword(input)){
+	if(validChangePassword(oldPassword, newPassword, newPasswordRepeat)){
 	
 		catchServerChangePasswordMessage(serverstub.changePassword(myToken(), oldPassword, newPassword));
 	}
@@ -179,6 +179,7 @@ function validChangePassword(oldPassword, newPassword, newPasswordRepeat){
 	errorCount += validateField(['newPassword', 'newPasswordRepeat'], ['newPassword', 'newPasswordRepeat'], isEmpty(newPassword));
 	errorCount += validateField(['newPassword', 'newPasswordRepeat'], ['newPassword', 'newPasswordRepeat'], newPassword != newPasswordRepeat);
 	
+	alert(errorCount);
 	return errorCount == 0;
 }
 
