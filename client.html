@@ -54,13 +54,20 @@
 					
 					<label>Gender</label>
 
-					<input class="inField" type="text" id="registerCountry" onfocus="inputFocus(this)">
+					<select>
+						<option value="empty"></option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
 					
 					<label>Country</label>
 
 					<input class="inField" type="text" id="registerCity" onfocus="inputFocus(this)">
 					
 					<label>City</label>
+					
+				
 
 					
 					<input class="button" type="button" id="registerButton" value="Register" onclick="signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
@@ -89,14 +96,13 @@
 				<div id="home">
 					<div id="homeInfo">
 						<p>Personal information</p>	
-						<label class="personalInfo" id="email" ></label>
-						<label class="personalInfo" id="password" ></label>
-						<label class="personalInfo" id="firstName" ></label>
-						<label class="personalInfo" id="lastName" ></label>
-						<label class="personalInfo" id="gender" ></label>
-						<label class="personalInfo" id="country" ></label>
-						<label class="personalInfo" id="city" ></label>
-						
+						<label class="personalInfo" id="email" ></label><br></br>
+						<label class="personalInfo" id="password" ></label><br></br>
+						<label class="personalInfo" id="firstName" ></label><br></br>
+						<label class="personalInfo" id="lastName" ></label><br></br>
+						<label class="personalInfo" id="gender" ></label><br></br>
+						<label class="personalInfo" id="country" ></label><br></br>
+						<label class="personalInfo" id="city" ></label><br></br>
 					</div>
 					
 					<div id="homeWall">
