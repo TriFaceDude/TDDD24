@@ -89,51 +89,51 @@
 				<div id="home">
 					<div id="homeInfo">
 						<p>Personal information</p>	
-						
-						
+						<label class="personalInfo" id="email" ></label>
+						<label class="personalInfo" id="password" ></label>
+						<label class="personalInfo" id="firstName" ></label>
+						<label class="personalInfo" id="lastName" ></label>
+						<label class="personalInfo" id="gender" ></label>
+						<label class="personalInfo" id="country" ></label>
+						<label class="personalInfo" id="city" ></label>
 						
 					</div>
 					
 					<div id="homeWall">
-					<h1>Wall</h1>
+						
+						<input class="button" type="button" id="updateButton" value="Update wall" onclick="updateWall()">
+						<h1>Wall</h1>
 					
-					
+						
 						<div class="wallPost">
 							<p class="postSender"></p>
-							
 							<p class="postContent"></p>
 						</div>
 						
 						<div class="wallPost">
 							<p class="postSender"></p>
-							
 							<p class="postContent"></p>
 						</div>
 						
 						<div class="wallPost">
 							<p class="postSender"></p>
-							
 							<p class="postContent"></p>
 						</div>
-			
 					
-					<input class="inField" type="text" id="postMessage" placeholder="What's on your mind?" onfocus="inputFocus(this)">
-					
-					
-					<input class="button" type="button" id="postButton" value="Post" onclick="postMessage(document.getElementById('postMessage').value)">
-					<div class="clearBoth"></div> 
+						<input class="inField" type="text" id="postMessage" placeholder="What's on your mind?" onfocus="inputFocus(this)">
+						<input class="button" type="button" id="postButton" value="Post" onclick="postMessage(document.getElementById('postMessage').value)">
+						<div class="clearBoth"></div> 
 					</div>
 					
 				</div>
-				
 			
 				<div id="browse">
 					<br></br>
-					<h1>Browse view</h1>
 					
+					<h1>Browse user</h1>
 					
 					<input class="accountInField" type="text" id="userEmail" onfocus="inputFocus(this)">
-					<input class="button" type="button" id="postButton" value="Find user" onclick="findUser(document.getElementById('userEmail').value)">
+					<input class="button" type="button" id="findUserButton" value="Find user" onclick="findUser(document.getElementById('userEmail').value)">
 					
 				</div>
 				
