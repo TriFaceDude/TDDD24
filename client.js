@@ -2,6 +2,7 @@
 window.onload = function(){
 
 	localStorage.token = "";
+	localStorage.pass = "";
 	updateView();
 };
 
@@ -36,9 +37,9 @@ function postMessage(msg){
 	updateWall();
 }
 
-function formatPosts(){
+function formatPosts(userEmail){
 	
-	msgArray = getMessages();
+	msgArray = getMessages(userEmail);
 	posts = document.getElementsByClassName('wallPost');
 	postCount = Math.min(posts.length, msgArray.length);
 	
@@ -49,15 +50,38 @@ function formatPosts(){
 	}
 }
 
-function updateWall(){
+function loadProfile(userEmail){
 
-	clearWall();
-	formatPosts();
+	displayUserInfo(userEmail);
+	updateWall(userEmail);
 }
 
-function getMessages(){
+function updateWall(userEmail){
 
-	msg = serverstub.getUserMessagesByToken(myToken());
+	clearWall();
+	formatPosts(userEmail);
+}
+
+function displayUserInfo(userEmail){
+
+	userInfo = getUserInfo(userEmail).data;
+	
+	setLabelText('email', userInfo.email);
+	setLabelText('firstName', userInfo.firstname);
+	setLabelText('lastName', userInfo.familyname);
+	setLabelText('gender', userInfo.gender);
+	setLabelText('city', userInfo.city);
+	setLabelText('country', userInfo.country);
+	
+	if(serverstub.getUserDataByToken(myToken()).data.email == userInfo.email){
+	
+		setLabelText('password', localStorage.pass);
+	}
+}
+
+function getMessages(userEmail){
+
+	msg = serverstub.getUserMessagesByEmail(myToken(), userEmail);
 	
 	if(msg.success){
 	
@@ -73,6 +97,7 @@ function signIn(email, password){
 
 	if(validSignIn(email, password)){
 	
+		localStorage.pass = password;
 		catchSignInMessage(serverstub.signIn(email, password));
 	}
 	else{
@@ -124,6 +149,7 @@ function catchSignInMessage(msg){
 	else{
 	
 		setLabelText('signInErrorLabel', msg.message);
+		localStorage.pass = "";
 	}
 }
 
@@ -273,6 +299,11 @@ function changeView(view){
 function isEmpty(s){
 
 	return s == "";
+}
+
+function getUserInfo(userEmail){
+
+	return serverstub.getUserDataByEmail(myToken(), userEmail); 
 }
 
 function toUserObject(email, password, passwordRepeat, firstname, familyname, gender, city, country){
