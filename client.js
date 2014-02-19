@@ -3,6 +3,7 @@ window.onload = function(){
 
 	localStorage.token = "";
 	localStorage.pass = "";
+	localStorage.currentlyViewing = "";
 	updateView();
 };
 
@@ -12,6 +13,12 @@ function tabClick(selectTab, showPage){
 	document.getElementsByName(selectTab)[0].setAttribute("id", "selectedTab");
 	
 	changeTabContent(showPage);
+	
+	if(showPage == 'home'){
+	
+		loadProfile(myEmail());
+		localStorage.currentlyViewing = myEmail();
+	}
 }
 
 function changeTabContent(showPage){
@@ -40,8 +47,8 @@ function updateView(){
 
 function postMessage(msg){
 
-	msg = serverstub.postMessage(myToken(), msg, serverstub.tokenToEmail(myToken()));
-	updateWall();
+	msg = serverstub.postMessage(myToken(), msg, localStorage.currentlyViewing);
+	updateWall(localStorage.currentlyViewing);
 }
 
 function formatPosts(userEmail){
@@ -65,6 +72,7 @@ function loadProfile(userEmail){
 
 function findUser(userEmail){
 
+	localStorage.currentlyViewing = userEmail;
 	changeTabContent('home');
 	loadProfile(userEmail);
 }
@@ -89,6 +97,10 @@ function displayUserInfo(userEmail){
 	if(serverstub.getUserDataByToken(myToken()).data.email == userInfo.email){
 	
 		setLabelText('password', localStorage.pass);
+	}
+	else{
+	
+		setLabelText('password', '*****');
 	}
 }
 
@@ -157,7 +169,7 @@ function catchSignInMessage(msg){
 	
 		localStorage.token = msg.data;
 		updateView();
-		updateWall(myEmail());
+		loadProfile(myEmail());
 	}
 	else{
 	
