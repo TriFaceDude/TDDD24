@@ -6,17 +6,24 @@ window.onload = function(){
 	updateView();
 };
 
-function tabClick(selectTab, showPage, hidePages){
-
-
-	document.getElementById(showPage).style.display = "block";
+function tabClick(selectTab, showPage){
+	
 	document.getElementById('selectedTab').setAttribute("id", "");
 	document.getElementsByName(selectTab)[0].setAttribute("id", "selectedTab");
 	
-	for (i = 0; i < hidePages.length; ++i) {
+	changeTabContent(showPage);
+}
+
+function changeTabContent(showPage){
 		
-		document.getElementById(hidePages[i]).style.display = "none";
+	pages = document.getElementsByName('tabContent');
+		
+	for (i = 0; i < pages.length; ++i) {
+		
+		pages[i].style.display = "none";
 	}
+	
+	document.getElementById(showPage).style.display = "block";
 }
 
 function updateView(){
@@ -54,6 +61,12 @@ function loadProfile(userEmail){
 
 	displayUserInfo(userEmail);
 	updateWall(userEmail);
+}
+
+function findUser(userEmail){
+
+	changeTabContent('home');
+	loadProfile(userEmail);
 }
 
 function updateWall(userEmail){
@@ -144,7 +157,7 @@ function catchSignInMessage(msg){
 	
 		localStorage.token = msg.data;
 		updateView();
-		updateWall();
+		updateWall(myEmail());
 	}
 	else{
 	
@@ -257,6 +270,11 @@ function elementArrayByName(name){
 function myToken(){
 
 	return localStorage.token;
+}
+
+function myEmail(){
+
+	return serverstub.tokenToEmail(myToken());
 }
 
 function clearWall(){

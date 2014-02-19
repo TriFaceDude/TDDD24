@@ -87,13 +87,13 @@
 
 			<div id="container">
 				<div id="navbar">
-					<a href="javascript:tabClick('homeTab' , 'home', ['browse', 'account'])" id="selectedTab" name="homeTab" class="tab">Home</a>
-					<a href="javascript:tabClick('browseTab', 'browse', ['home', 'account'])" id="" name="browseTab" class="tab">Browse</a>
-					<a href="javascript:tabClick('accountTab', 'account', ['browse', 'home'])" id="" name="accountTab" class="tab">Account</a>
-				</div>	<!-- end navbar div-->
+					<a href="javascript:tabClick('homeTab', 'home')" id="selectedTab" name="homeTab" class="tab">Home</a>
+					<a href="javascript:tabClick('browseTab', 'browse')" id="" name="browseTab" class="tab">Browse</a>
+					<a href="javascript:tabClick('accountTab', 'account')" id="" name="accountTab" class="tab">Account</a>
+				</div>
 			
 			
-				<div id="home">
+				<div id="home" name="tabContent">
 					<div id="homeInfo">
 						<p>Personal information</p>	
 						<label class="personalInfo" id="email" ></label><br></br>
@@ -132,7 +132,7 @@
 					
 				</div>
 			
-				<div id="browse">
+				<div id="browse" name="tabContent">
 					<br></br>
 					
 					<h1>Browse user</h1>
@@ -142,7 +142,7 @@
 					
 				</div>
 				
-				<div id="account">
+				<div id="account" name="tabContent">
 				
 					<h1>Change your password here</h1>
 					
