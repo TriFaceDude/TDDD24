@@ -50,16 +50,16 @@
 					
 					<label>Last name</label>
 
-					<input class="inField" type="text" id="registerGender" onfocus="inputFocus(this)">
-					
-					<label>Gender</label>
-
 					<select>
-						<option value="empty"></option>
+						<option value="empty" selected></option>
 						<option value="male">Male</option>
 						<option value="female">Female</option>
 						<option value="other">Other</option>
 					</select>
+					
+					<label>Gender</label>
+
+					
 					
 					<label>Country</label>
 
@@ -110,7 +110,6 @@
 						<input class="button" type="button" id="updateButton" value="Update wall" onclick="updateWall()">
 						<h1>Wall</h1>
 					
-						
 						<div class="wallPost">
 							<p class="postSender"></p>
 							<p class="postContent"></p>
@@ -148,15 +147,12 @@
 					<h1>Change your password here</h1>
 					
 					<input class="accountInField" type="text" id="oldPassword" onfocus="inputFocus(this)">
-					
 					<label>Old password</label>
 
 					<input class="accountInField" type="text" id="newPassword" onfocus="inputFocus(this)">
-					
 					<label>New password</label>
 					
 					<input class="accountInField" type="text" id="newPasswordRepeat" onfocus="inputFocus(this)">
-					
 					<label>Repeat new password</label>
 					
 					<input class="button" type="button" id="changeButton" value="Change password" onclick="changePassword(document.getElementById('oldPassword').value, document.getElementById('newPassword').value, document.getElementById('newPasswordRepeat').value)">
@@ -165,20 +161,13 @@
 					
 					<input class="button" type="button" id="signOutButton" value="Sign out" onclick="signOut()">
 					
-					
-					
-					
 				</div>
 			</div>
-		
 		</script>
-		
 	</head>
 	
 	<body>
-		
 		<div id="view">
 		</div>
-		
 	</body>
 </html>
