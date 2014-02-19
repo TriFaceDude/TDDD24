@@ -48,7 +48,7 @@ function updateView(){
 function postMessage(msg){
 
 	msg = serverstub.postMessage(myToken(), msg, localStorage.currentlyViewing);
-	updateWall(localStorage.currentlyViewing);
+	updateWall();
 }
 
 function formatPosts(userEmail){
@@ -66,8 +66,9 @@ function formatPosts(userEmail){
 
 function loadProfile(userEmail){
 
+	localStorage.currentlyViewing = userEmail;
 	displayUserInfo(userEmail);
-	updateWall(userEmail);
+	updateWall();
 }
 
 function findUser(userEmail){
@@ -77,10 +78,10 @@ function findUser(userEmail){
 	loadProfile(userEmail);
 }
 
-function updateWall(userEmail){
+function updateWall(){
 
 	clearWall();
-	formatPosts(userEmail);
+	formatPosts(localStorage.currentlyViewing);
 }
 
 function displayUserInfo(userEmail){
@@ -170,6 +171,7 @@ function catchSignInMessage(msg){
 		localStorage.token = msg.data;
 		updateView();
 		loadProfile(myEmail());
+		
 	}
 	else{
 	
