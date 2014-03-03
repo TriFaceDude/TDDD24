@@ -17,70 +17,54 @@
 				<div id="signIn">
 					
 					<input class="inField" type="text" id="loginEmail" name="signInEmailBox" onfocus="inputFocus(this)">
-					
 					<label>Email</label>
 					
-					<input class="inField" type="text" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">
-					
+					<input class="inField" type="text" id="loginPassword" name="signInPasswordBox" onfocus="inputFocus(this)">					
 					<label>Password</label>
 
 					<input class="button" type="button" id="signInButton" value="Sign In" onclick="signIn(document.getElementById('loginEmail').value,document.getElementById('loginPassword').value)">
-					
 					<label class="errorLabel" id="signInErrorLabel"></label>
 				</div>
 
 				<div id="register">
 					<input class="inField" type="text" id="registerEmail" onfocus="inputFocus(this)">
-					
 					<label>Email</label>
 
 					<input class="inField" type="text" id="registerPassword" onfocus="inputFocus(this)">
-					
 					<label>Password</label>
 
 					<input class="inField" type="text" id="registerPassword2" onfocus="inputFocus(this)">
-					
 					<label>Repeat password</label>
 
 					<input class="inField" type="text" id="registerFirstName" onfocus="inputFocus(this)">
-					
 					<label>First name</label>
 
-					<input class="inField" type="text" id="registerLastName" onfocus="inputFocus(this)">
-					
+					<input class="inField" type="text" id="registerLastName" onfocus="inputFocus(this)">					
 					<label>Last name</label>
-
-					<select>
-						<option value="empty" selected></option>
-						<option value="male">Male</option>
-						<option value="female">Female</option>
-						<option value="other">Other</option>
-					</select>
+					
+					<dropDown>
+						<select>
+							<option value="" id="registerGender"></option>
+							<option value="male" id="registerGender">Male</option>
+							<option value="female"id="registerGender">Female</option>
+							<option value="other"id="registerGender" >Other</option>
+						</select>
+					</dropDown>
 					
 					<label>Gender</label>
-
-					
-					
+					<input class="inField" type="text" id="registerCountry" onfocus="inputFocus(this)">
 					<label>Country</label>
 
 					<input class="inField" type="text" id="registerCity" onfocus="inputFocus(this)">
-					
 					<label>City</label>
-					
-				
-
 					
 					<input class="button" type="button" id="registerButton" value="Register" onclick="signUp(toUserObject(document.getElementById('registerEmail').value, document.getElementById('registerPassword').value, 
 																								document.getElementById('registerPassword2').value, document.getElementById('registerFirstName').value, 
 																								document.getElementById('registerLastName').value, document.getElementById('registerGender').value,
 																								document.getElementById('registerCountry').value, document.getElementById('registerCity').value))">
-					
 					<label class="errorLabel" id="registerErrorLabel"></label>
-					
 				</div>
-			
 			</div>
-		
 		</script>
 		
 		<script id="signedinview" type="text/view">
@@ -91,7 +75,6 @@
 					<a href="javascript:tabClick('browseTab', 'browse')" id="" name="browseTab" class="tab">Browse</a>
 					<a href="javascript:tabClick('accountTab', 'account')" id="" name="accountTab" class="tab">Account</a>
 				</div>
-			
 			
 				<div id="home" name="tabContent">
 					<div id="homeInfo">
