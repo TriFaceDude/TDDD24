@@ -23,24 +23,23 @@ def get_users():
 	
 def get_online_users():
 	db = connect_db()
-	cur = db.execute("SELECT 'user_name', 'user_token' FROM sqlite_master WHERE type='table' AND name='online_users'")
+	cur = db.execute("SELECT name FROM sqlite_master WHERE type='table' AND tbl_name='online_users'")
+	
 	online_users = {}
 	
-	
-	
-	for row in cur.fetchall():
-		online_users[row[0]] = {'token' : row[1]}
-		print(online_users)
-		print(row[0])
-		print(online_users[row[0]])
+	if cur.fetchall() != []:
+		cur = db.execute("SELECT user_name, user_token FROM online_users")
+		for row in cur.fetchall():
+			online_users[row[1]] = row[0]
 
+	print(online_users)
 	db.close()
 	
 	return online_users
 	
 def is_online(username):
 	online_users = get_online_users()
-	return online_users.__contains__(username)
+	return online_users.values().__contains__(username)
 	
 def get_user_token(username):
 	online_users = get_online_users()
@@ -60,8 +59,6 @@ def set_user_signed_in(username, token):
 def sign_in(username, password):
 	users = get_users()
 	
-
-	
 	if is_online(username):
 		return {'status' : 'Fail', 'msg' : 'User already signed in.'}
 	
@@ -72,8 +69,17 @@ def sign_in(username, password):
 			
 	return {'status' : 'Fail', 'msg' : 'Wrong username or password.'}
 
+def set_user_offline(token):
+	
+	
+	
+	
 def sign_out(token):
-	users = get_users()
+
+	online_users = get_online_users()
+	
+	if online_users.__contains__(token):
+		set_user_offline(token)
 	
 	
 	
