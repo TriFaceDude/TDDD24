@@ -10,6 +10,8 @@ app.config.from_object(__name__)
 def connect_db():
 	return sqlite3.connect(app.config['DATABASE'])
 
+	
+#Returns all registered users in a dictonary {email : {password : pass}}
 def get_users():
 	db = connect_db()
 	cur = db.execute('SELECT user_name, user_pass FROM users')
@@ -21,6 +23,7 @@ def get_users():
 	
 	return users
 	
+#Returns all online users in a dictonary {token : email }
 def get_online_users():
 	db = connect_db()
 	cur = db.execute("SELECT name FROM sqlite_master WHERE type='table' AND tbl_name='online_users'")
@@ -36,17 +39,20 @@ def get_online_users():
 	db.close()
 	
 	return online_users
-	
-def is_online(username):
+
+
+#Returns bool, true if email belongs to online user
+def is_online(email):
 	online_users = get_online_users()
-	return online_users.values().__contains__(username)
+	return online_users.values().__contains__(email)
 	
-def get_user_token(username):
+#Takes email, returns token
+def get_user_token(email):
 	online_users = get_online_users()
 	
 	return online_users[username]['token']
 
-	
+#Adds user to online users
 def set_user_signed_in(username, token):
 	db = connect_db()
 	cur = db.cursor()
@@ -55,7 +61,7 @@ def set_user_signed_in(username, token):
 	db.commit()
 	db.close()
 	
-
+#Validates login and sets user online
 def sign_in(username, password):
 	users = get_users()
 	
@@ -73,7 +79,7 @@ def set_user_offline(token):
 	
 	
 	
-	
+#Sets user offline
 def sign_out(token):
 
 	online_users = get_online_users()
@@ -82,7 +88,8 @@ def sign_out(token):
 		set_user_offline(token)
 	
 	
-	
+
+#Test method, will run on page refresh	
 @app.route('/')	
 def test():
 
